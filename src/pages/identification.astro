@@ -1,0 +1,161 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Identification">
+  <div class="container">
+    <div class="identification-container">
+      <h1 class="page-title">Identification</h1>
+      <p class="page-subtitle">Veuillez renseigner vos informations avant de commencer</p>
+
+      <form id="identification-form" class="identification-form">
+        <div class="form-group">
+          <label for="nom" class="form-label">Nom <span class="required">*</span></label>
+          <input 
+            type="text" 
+            id="nom" 
+            name="nom" 
+            class="form-input" 
+            required 
+            placeholder="Votre nom"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="prenom" class="form-label">Prénom <span class="required">*</span></label>
+          <input 
+            type="text" 
+            id="prenom" 
+            name="prenom" 
+            class="form-input" 
+            required 
+            placeholder="Votre prénom"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="classe" class="form-label">Classe/Niveau <span class="required">*</span></label>
+          <select id="classe" name="classe" class="form-select" required>
+            <option value="">-- Sélectionner --</option>
+            <option value="BTS CIEL 1">BTS CIEL 1ère année</option>
+            <option value="BTS CIEL 2">BTS CIEL 2ème année</option>
+            <option value="BTS SIO 1">BTS SIO 1ère année</option>
+            <option value="BTS SIO 2">BTS SIO 2ème année</option>
+            <option value="Licence Pro">Licence Professionnelle</option>
+            <option value="Formation Continue">Formation Continue</option>
+            <option value="Autre">Autre</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="date" class="form-label">Date</label>
+          <input 
+            type="date" 
+            id="date" 
+            name="date" 
+            class="form-input" 
+            readonly
+          />
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-submit">Commencer le cours</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Définir la date du jour automatiquement
+    document.addEventListener('DOMContentLoaded', () => {
+      const dateInput = document.getElementById('date') as HTMLInputElement;
+      const today = new Date().toISOString().split('T')[0];
+      dateInput.value = today;
+
+      // Charger les données sauvegardées si elles existent
+      const savedData = localStorage.getItem('studentInfo');
+      if (savedData) {
+        const data = JSON.parse(savedData);
+        (document.getElementById('nom') as HTMLInputElement).value = data.nom || '';
+        (document.getElementById('prenom') as HTMLInputElement).value = data.prenom || '';
+        (document.getElementById('classe') as HTMLSelectElement).value = data.classe || '';
+      }
+
+      // Gérer la soumission du formulaire
+      const form = document.getElementById('identification-form') as HTMLFormElement;
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const formData = {
+          nom: (document.getElementById('nom') as HTMLInputElement).value,
+          prenom: (document.getElementById('prenom') as HTMLInputElement).value,
+          classe: (document.getElementById('classe') as HTMLSelectElement).value,
+          date: (document.getElementById('date') as HTMLInputElement).value
+        };
+
+        // Sauvegarder les informations dans le localStorage
+        localStorage.setItem('studentInfo', JSON.stringify(formData));
+        
+        // Rediriger vers la page du cours
+        window.location.href = '/cours';
+      });
+    });
+  </script>
+
+  <style>
+    .identification-container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 40px;
+      background-color: var(--white);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+    }
+
+    .page-title {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .page-subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 40px;
+      font-size: 1.1rem;
+    }
+
+    .identification-form {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .required {
+      color: var(--accent-color);
+      font-weight: 700;
+    }
+
+    .form-actions {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .btn-submit {
+      padding: 15px 50px;
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 768px) {
+      .identification-container {
+        margin: 20px;
+        padding: 30px 20px;
+      }
+
+      .page-title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</Layout>

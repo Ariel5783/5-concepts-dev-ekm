@@ -1,0 +1,434 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Activités Pratiques">
+  <div class="container">
+    <div class="student-info" id="student-info"></div>
+
+    <div class="activities-header">
+      <h1 class="activities-title">Activités Pratiques</h1>
+      <p class="activities-subtitle">Mettez en pratique les concepts appris</p>
+      <div class="progress-bar">
+        <div class="progress-fill" id="activities-progress-fill"></div>
+      </div>
+      <p class="progress-text" id="activities-progress-text">Activités complétées : 0/3</p>
+    </div>
+
+    <div class="activities-container">
+      <!-- Activité 1: Créer une API REST -->
+      <div class="activity-card">
+        <div class="activity-header">
+          <span class="activity-badge">Activité 1</span>
+          <h2>Créer une petite API REST</h2>
+        </div>
+
+        <div class="activity-content">
+          <h3>Objectif</h3>
+          <p>Créer une API REST simple avec Node.js et Express pour gérer une liste de tâches.</p>
+
+          <h3>Instructions</h3>
+          <ol>
+            <li>Installez Node.js et Express sur votre ordinateur</li>
+            <li>Créez un fichier <code>server.js</code></li>
+            <li>Configurez les routes GET et POST pour récupérer et ajouter des tâches</li>
+            <li>Testez votre API avec un navigateur ou Postman</li>
+          </ol>
+
+          <h3>Code de référence</h3>
+          <pre><code>{`const express = require('express');
+const app = express();
+app.use(express.json());
+
+let tasks = [
+  { id: 1, title: 'Acheter du lait', completed: false },
+  { id: 2, title: 'Réviser', completed: true }
+];
+
+app.get('/tasks', (req, res) => {
+  res.status(200).json(tasks);
+});
+
+app.post('/tasks', (req, res) => {
+  const newTask = { 
+    id: tasks.length + 1, 
+    ...req.body 
+  };
+  tasks.push(newTask);
+  res.status(201).json(newTask);
+});
+
+app.listen(3000, () => {
+  console.log('API running on port 3000');
+});`}</code></pre>
+
+          <div class="activity-response">
+            <h3>Votre réponse</h3>
+            <textarea 
+              id="activity-1-response" 
+              class="activity-textarea" 
+              placeholder="Décrivez votre réalisation, les difficultés rencontrées, et ce que vous avez appris..."
+              rows="8"
+            ></textarea>
+            <button class="btn" onclick="saveActivity(1)">Sauvegarder la réponse</button>
+            <div class="save-feedback" id="feedback-activity-1"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Activité 2: Rechercher un métier technologique -->
+      <div class="activity-card">
+        <div class="activity-header">
+          <span class="activity-badge">Activité 2</span>
+          <h2>Rechercher un métier technologique</h2>
+        </div>
+
+        <div class="activity-content">
+          <h3>Objectif</h3>
+          <p>Identifier et décrire un métier technologique qui vous intéresse.</p>
+
+          <h3>Instructions</h3>
+          <ol>
+            <li>Choisissez un métier parmi : Développeur Backend, Frontend, Full-Stack, Data Scientist, DevOps, ou autre</li>
+            <li>Recherchez les compétences requises pour ce métier</li>
+            <li>Identifiez les technologies utilisées</li>
+            <li>Décrivez pourquoi ce métier vous intéresse</li>
+          </ol>
+
+          <h3>Points à aborder</h3>
+          <ul>
+            <li>Nom du métier choisi</li>
+            <li>Principales responsabilités</li>
+            <li>Technologies et langages utilisés</li>
+            <li>Formation nécessaire</li>
+            <li>Perspectives d'évolution</li>
+            <li>Pourquoi ce métier vous attire</li>
+          </ul>
+
+          <div class="activity-response">
+            <h3>Votre réponse</h3>
+            <textarea 
+              id="activity-2-response" 
+              class="activity-textarea" 
+              placeholder="Décrivez le métier technologique qui vous intéresse..."
+              rows="10"
+            ></textarea>
+            <button class="btn" onclick="saveActivity(2)">Sauvegarder la réponse</button>
+            <div class="save-feedback" id="feedback-activity-2"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Activité 3: Utiliser Git pour versionner un projet -->
+      <div class="activity-card">
+        <div class="activity-header">
+          <span class="activity-badge">Activité 3</span>
+          <h2>Utiliser Git pour versionner un projet simple</h2>
+        </div>
+
+        <div class="activity-content">
+          <h3>Objectif</h3>
+          <p>Créer un dépôt Git local et effectuer vos premiers commits.</p>
+
+          <h3>Instructions</h3>
+          <ol>
+            <li>Installez Git sur votre ordinateur</li>
+            <li>Créez un nouveau dossier pour votre projet</li>
+            <li>Initialisez un dépôt Git avec <code>git init</code></li>
+            <li>Créez un fichier README.md</li>
+            <li>Ajoutez le fichier avec <code>git add README.md</code></li>
+            <li>Faites votre premier commit avec <code>git commit -m "Premier commit"</code></li>
+          </ol>
+
+          <h3>Commandes Git essentielles</h3>
+          <pre><code>{`# Initialiser un dépôt
+git init
+
+# Vérifier le statut
+git status
+
+# Ajouter des fichiers
+git add .
+
+# Faire un commit
+git commit -m "Message de commit"
+
+# Voir l'historique
+git log
+
+# Créer une branche
+git branch nom-branche
+
+# Changer de branche
+git checkout nom-branche`}</code></pre>
+
+          <div class="activity-response">
+            <h3>Votre réponse</h3>
+            <textarea 
+              id="activity-3-response" 
+              class="activity-textarea" 
+              placeholder="Décrivez les commandes que vous avez utilisées et ce que vous avez appris sur Git..."
+              rows="8"
+            ></textarea>
+            <button class="btn" onclick="saveActivity(3)">Sauvegarder la réponse</button>
+            <div class="save-feedback" id="feedback-activity-3"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="navigation-buttons">
+      <a href="/cours" class="btn btn-secondary">Retour au cours</a>
+      <a href="/qcm" class="btn">Passer aux QCM</a>
+    </div>
+  </div>
+
+  <script is:inline>
+    // Initialisation
+    document.addEventListener('DOMContentLoaded', () => {
+      // Afficher les informations de l'étudiant
+      const studentInfo = JSON.parse(localStorage.getItem('studentInfo') || '{}');
+      const infoDiv = document.getElementById('student-info');
+      if (studentInfo.nom && studentInfo.prenom) {
+        infoDiv.innerHTML = `
+          <p><strong>Étudiant(e) :</strong> ${studentInfo.prenom} ${studentInfo.nom}</p>
+          <p><strong>Classe :</strong> ${studentInfo.classe}</p>
+          <p><strong>Date :</strong> ${studentInfo.date}</p>
+        `;
+      }
+
+      // Charger les réponses sauvegardées
+      loadActivities();
+      updateActivitiesProgress();
+    });
+
+    // Sauvegarder une activité
+    function saveActivity(activityNum) {
+      const textarea = document.getElementById(`activity-${activityNum}-response`);
+      const response = textarea.value.trim();
+      
+      if (!response) {
+        alert('Veuillez saisir une réponse avant de sauvegarder.');
+        return;
+      }
+
+      let activities = JSON.parse(localStorage.getItem('practicalActivities') || '{}');
+      activities[`activity${activityNum}`] = {
+        response: response,
+        timestamp: new Date().toISOString()
+      };
+      localStorage.setItem('practicalActivities', JSON.stringify(activities));
+
+      const feedback = document.getElementById(`feedback-activity-${activityNum}`);
+      feedback.innerHTML = '<p class="success">✓ Réponse sauvegardée avec succès !</p>';
+      
+      setTimeout(() => {
+        feedback.innerHTML = '';
+      }, 3000);
+
+      updateActivitiesProgress();
+    }
+
+    // Charger les activités sauvegardées
+    function loadActivities() {
+      const activities = JSON.parse(localStorage.getItem('practicalActivities') || '{}');
+      Object.keys(activities).forEach(key => {
+        const activityNum = key.replace('activity', '');
+        const textarea = document.getElementById(`activity-${activityNum}-response`);
+        if (textarea) {
+          textarea.value = activities[key].response;
+        }
+      });
+    }
+
+    // Mettre à jour la progression
+    function updateActivitiesProgress() {
+      const activities = JSON.parse(localStorage.getItem('practicalActivities') || '{}');
+      const totalActivities = 3;
+      const completedActivities = Object.keys(activities).length;
+      const percentage = Math.round((completedActivities / totalActivities) * 100);
+      
+      const progressFill = document.getElementById('activities-progress-fill');
+      const progressText = document.getElementById('activities-progress-text');
+      
+      progressFill.style.width = `${percentage}%`;
+      progressText.textContent = `Activités complétées : ${completedActivities}/${totalActivities}`;
+    }
+  </script>
+
+  <style>
+    .student-info {
+      background-color: var(--white);
+      padding: 20px;
+      border-radius: var(--border-radius);
+      margin-bottom: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .student-info p {
+      margin: 5px 0;
+    }
+
+    .activities-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .activities-title {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+
+    .activities-subtitle {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 30px;
+      background-color: #e0e0e0;
+      border-radius: 15px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent-color), #ff8c42);
+      transition: width 0.5s ease;
+      width: 0%;
+    }
+
+    .progress-text {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--accent-color);
+    }
+
+    .activities-container {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .activity-card {
+      background-color: var(--white);
+      border-radius: var(--border-radius);
+      padding: 40px;
+      box-shadow: var(--shadow);
+    }
+
+    .activity-header {
+      margin-bottom: 30px;
+    }
+
+    .activity-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent-color), #ff8c42);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .activity-header h2 {
+      font-size: 1.8rem;
+      color: var(--accent-color);
+      margin-top: 10px;
+    }
+
+    .activity-content h3 {
+      color: var(--primary-color);
+      font-size: 1.3rem;
+      margin: 25px 0 15px 0;
+    }
+
+    .activity-content ol,
+    .activity-content ul {
+      margin-left: 25px;
+      line-height: 1.8;
+    }
+
+    .activity-content li {
+      margin-bottom: 10px;
+    }
+
+    pre {
+      background-color: #1e1e1e;
+      color: #d4d4d4;
+      padding: 20px;
+      border-radius: var(--border-radius);
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+
+    code {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9rem;
+    }
+
+    .activity-response {
+      background-color: #f9f9f9;
+      padding: 30px;
+      border-radius: var(--border-radius);
+      margin-top: 30px;
+    }
+
+    .activity-textarea {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid #ddd;
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+      font-family: inherit;
+      line-height: 1.6;
+      resize: vertical;
+      transition: var(--transition);
+    }
+
+    .activity-textarea:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+    }
+
+    .save-feedback {
+      margin-top: 15px;
+    }
+
+    .save-feedback .success {
+      color: #2e7d32;
+      background-color: #c8e6c9;
+      padding: 10px;
+      border-radius: 4px;
+    }
+
+    .navigation-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin: 50px 0;
+    }
+
+    @media (max-width: 768px) {
+      .activity-card {
+        padding: 20px;
+      }
+
+      .activity-header h2 {
+        font-size: 1.4rem;
+      }
+
+      pre {
+        font-size: 0.8rem;
+        padding: 15px;
+      }
+    }
+  </style>
+</Layout>

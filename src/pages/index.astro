@@ -1,0 +1,293 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Accueil">
+  <div class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Les 5 Concepts Clés du Développement</h1>
+      <p class="hero-subtitle">by EKM Conseils</p>
+      <p class="hero-description">
+        Un parcours pédagogique progressif et participatif pour maîtriser les fondamentaux du développement logiciel
+      </p>
+      <div class="hero-buttons">
+        <a href="/identification" class="btn">Commencer le cours</a>
+        <a href="#concepts" class="btn btn-secondary">Découvrir les concepts</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="concepts" class="concepts-section">
+    <div class="container">
+      <h2 class="section-title">Les 5 Concepts Essentiels</h2>
+      
+      <div class="concepts-grid">
+        <a href="/cours#concept-1" class="concept-card-link">
+          <div class="concept-card">
+            <div class="concept-number">1</div>
+            <h3>Comprendre les API</h3>
+            <p>Maîtriser les API REST et leur rôle crucial dans la communication entre systèmes</p>
+          </div>
+        </a>
+
+        <a href="/cours#concept-2" class="concept-card-link">
+          <div class="concept-card">
+            <div class="concept-number">2</div>
+            <h3>Rôles Technologiques</h3>
+            <p>Découvrir les différents métiers du développement et leurs spécificités</p>
+          </div>
+        </a>
+
+        <a href="/cours#concept-3" class="concept-card-link">
+          <div class="concept-card">
+            <div class="concept-number">3</div>
+            <h3>Se Spécialiser</h3>
+            <p>Comprendre l'importance de la spécialisation pour devenir expert</p>
+          </div>
+        </a>
+
+        <a href="/cours#concept-4" class="concept-card-link">
+          <div class="concept-card">
+            <div class="concept-number">4</div>
+            <h3>Gérer son Temps</h3>
+            <p>Apprendre à organiser efficacement son travail et faire des pauses</p>
+          </div>
+        </a>
+
+        <a href="/cours#concept-5" class="concept-card-link">
+          <div class="concept-card">
+            <div class="concept-number">5</div>
+            <h3>Travailler en Équipe</h3>
+            <p>Maîtriser Git et les outils collaboratifs pour réussir en équipe</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="features-section">
+    <div class="container">
+      <h2 class="section-title">Parcours Pédagogique</h2>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📚</div>
+          <h3>Cours Progressif</h3>
+          <p>Des leçons structurées avec des questions interactives</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🛠️</div>
+          <h3>Activités Pratiques</h3>
+          <p>Des exercices concrets pour mettre en pratique vos connaissances</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">✅</div>
+          <h3>QCM d'Évaluation</h3>
+          <p>3 QCM de 20 questions pour valider vos acquis</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">💾</div>
+          <h3>Sauvegarde Automatique</h3>
+          <p>Vos réponses sont sauvegardées automatiquement</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Suivi de Progression</h3>
+          <p>Visualisez votre score et votre note en temps réel</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📧</div>
+          <h3>Export & Partage</h3>
+          <p>Envoyez vos résultats par email ou imprimez-les</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .hero {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/Diverse_Team_Unity_v02bis.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 60px 20px;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-subtitle {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: var(--secondary-color);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-description {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      line-height: 1.8;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .concepts-section,
+    .features-section {
+      padding: 80px 20px;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 50px;
+      color: var(--primary-color);
+    }
+
+    .concepts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .concept-card-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .concept-card {
+      background-color: var(--white);
+      border-radius: var(--border-radius);
+      padding: 30px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      cursor: pointer;
+      height: 100%;
+    }
+
+    .concept-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .concept-number {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 0 auto 20px;
+    }
+
+    .concept-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      color: var(--primary-color);
+    }
+
+    .concept-card p {
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .feature-card {
+      background-color: var(--white);
+      border-radius: var(--border-radius);
+      padding: 40px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .feature-icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .feature-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      color: var(--primary-color);
+    }
+
+    .feature-card p {
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.2rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.3rem;
+      }
+
+      .hero-description {
+        font-size: 1rem;
+      }
+
+      .concepts-grid,
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</Layout>

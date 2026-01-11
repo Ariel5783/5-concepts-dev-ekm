@@ -1,0 +1,729 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="QCM d'Évaluation">
+  <div class="container">
+    <div class="student-info" id="student-info"></div>
+
+    <div class="qcm-header">
+      <h1 class="qcm-title">QCM d'Évaluation</h1>
+      <p class="qcm-subtitle">Validez vos connaissances avec 3 niveaux de QCM</p>
+    </div>
+
+    <div class="qcm-selector">
+      <button class="qcm-tab active" onclick="showQCM(1)">QCM Niveau 1 - Débutant</button>
+      <button class="qcm-tab" onclick="showQCM(2)">QCM Niveau 2 - Intermédiaire</button>
+      <button class="qcm-tab" onclick="showQCM(3)">QCM Niveau 3 - Avancé</button>
+    </div>
+
+    <!-- QCM Niveau 1 - Débutant -->
+    <div id="qcm-1" class="qcm-container active">
+      <div class="qcm-info">
+        <h2>QCM Niveau 1 - Débutant</h2>
+        <p>20 questions pour tester vos connaissances de base</p>
+        <div class="qcm-stats">
+          <span id="timer-1" class="timer">Temps: 00:00</span>
+          <span id="score-1" class="score">Score: 0/20</span>
+        </div>
+      </div>
+
+      <form id="form-qcm-1" class="qcm-form">
+        <div class="question-card">
+          <h3>Question 1</h3>
+          <p class="question-text">Qu'est-ce qu'une API ?</p>
+          <div class="options">
+            <label><input type="radio" name="q1" value="a"> Un type de base de données</label>
+            <label><input type="radio" name="q1" value="b"> Une interface de programmation d'application</label>
+            <label><input type="radio" name="q1" value="c"> Un langage de programmation</label>
+            <label><input type="radio" name="q1" value="d"> Un navigateur web</label>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <h3>Question 2</h3>
+          <p class="question-text">Que signifie REST dans API REST ?</p>
+          <div class="options">
+            <label><input type="radio" name="q2" value="a"> Really Easy Simple Technology</label>
+            <label><input type="radio" name="q2" value="b"> Representational State Transfer</label>
+            <label><input type="radio" name="q2" value="c"> Remote Execution Service Tool</label>
+            <label><input type="radio" name="q2" value="d"> Rapid Event Streaming Technology</label>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <h3>Question 3</h3>
+          <p class="question-text">Quel développeur s'occupe principalement du serveur et de la base de données ?</p>
+          <div class="options">
+            <label><input type="radio" name="q3" value="a"> Développeur Frontend</label>
+            <label><input type="radio" name="q3" value="b"> Développeur Backend</label>
+            <label><input type="radio" name="q3" value="c"> Designer UI/UX</label>
+            <label><input type="radio" name="q3" value="d"> Chef de projet</label>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <h3>Question 4</h3>
+          <p class="question-text">Quel développeur crée l'interface utilisateur ?</p>
+          <div class="options">
+            <label><input type="radio" name="q4" value="a"> Développeur Backend</label>
+            <label><input type="radio" name="q4" value="b"> Data Scientist</label>
+            <label><input type="radio" name="q4" value="c"> Développeur Frontend</label>
+            <label><input type="radio" name="q4" value="d"> DevOps</label>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <h3>Question 5</h3>
+          <p class="question-text">Qu'est-ce qu'un développeur Full-Stack ?</p>
+          <div class="options">
+            <label><input type="radio" name="q5" value="a"> Un développeur spécialisé uniquement en frontend</label>
+            <label><input type="radio" name="q5" value="b"> Un développeur qui maîtrise à la fois le frontend et le backend</label>
+            <label><input type="radio" name="q5" value="c"> Un chef de projet technique</label>
+            <label><input type="radio" name="q5" value="d"> Un testeur logiciel</label>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <h3>Question 6</h3>
+          <p class="question-text">Pourquoi est-il recommandé de se spécialiser en développement ?</p>
+          <div class="options">
+            <label><input type="radio" name="q6" value="a"> Pour limiter ses compétences</label>
+            <label><input type="radio" name="q6" value="b"> Pour devenir expert dans un domaine précis</label>
+            <label><input type="radio" name="q6" value="c"> Pour éviter d'apprendre</label>
+            <label><input type="radio" name="q6" value="d"> Parce que c'est obligatoire</label>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <h3>Question 7</h3>
+          <p class="question-text">Quelle est la durée d'une session Pomodoro ?</p>
+          <div class="options">
+            <label><input type="radio" name="q7" value="a"> 10 minutes</label>
+            <label><input type="radio" name="q7" value="b"> 25 minutes</label>
+            <label><input type="radio" name="q7" value="c"> 45 minutes</label>
+            <label><input type="radio" name="q7" value="d"> 60 minutes</label>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <h3>Question 8</h3>
+          <p class="question-text">Quel outil est principalement utilisé pour versionner du code ?</p>
+          <div class="options">
+            <label><input type="radio" name="q8" value="a"> Microsoft Word</label>
+            <label><input type="radio" name="q8" value="b"> Git</label>
+            <label><input type="radio" name="q8" value="c"> Photoshop</label>
+            <label><input type="radio" name="q8" value="d"> Excel</label>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <h3>Question 9</h3>
+          <p class="question-text">Que signifie HTTP ?</p>
+          <div class="options">
+            <label><input type="radio" name="q9" value="a"> High Transfer Text Protocol</label>
+            <label><input type="radio" name="q9" value="b"> HyperText Transfer Protocol</label>
+            <label><input type="radio" name="q9" value="c"> Home Tool Transfer Protocol</label>
+            <label><input type="radio" name="q9" value="d"> Hybrid Text Transfer Process</label>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <h3>Question 10</h3>
+          <p class="question-text">Quel format de données est couramment utilisé avec les API REST ?</p>
+          <div class="options">
+            <label><input type="radio" name="q10" value="a"> XML uniquement</label>
+            <label><input type="radio" name="q10" value="b"> JSON</label>
+            <label><input type="radio" name="q10" value="c"> PDF</label>
+            <label><input type="radio" name="q10" value="d"> DOC</label>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <h3>Question 11</h3>
+          <p class="question-text">Node.js permet d'exécuter JavaScript :</p>
+          <div class="options">
+            <label><input type="radio" name="q11" value="a"> Uniquement dans le navigateur</label>
+            <label><input type="radio" name="q11" value="b"> Sur le serveur</label>
+            <label><input type="radio" name="q11" value="c"> Dans les feuilles de calcul</label>
+            <label><input type="radio" name="q11" value="d"> Dans les images</label>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <h3>Question 12</h3>
+          <p class="question-text">Qu'est-ce qu'Express.js ?</p>
+          <div class="options">
+            <label><input type="radio" name="q12" value="a"> Un système d'exploitation</label>
+            <label><input type="radio" name="q12" value="b"> Un framework web pour Node.js</label>
+            <label><input type="radio" name="q12" value="c"> Un éditeur de code</label>
+            <label><input type="radio" name="q12" value="d"> Une base de données</label>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <h3>Question 13</h3>
+          <p class="question-text">Quelle commande Git permet d'initialiser un dépôt ?</p>
+          <div class="options">
+            <label><input type="radio" name="q13" value="a"> git start</label>
+            <label><input type="radio" name="q13" value="b"> git init</label>
+            <label><input type="radio" name="q13" value="c"> git begin</label>
+            <label><input type="radio" name="q13" value="d"> git create</label>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <h3>Question 14</h3>
+          <p class="question-text">Quelle commande Git permet de faire un commit ?</p>
+          <div class="options">
+            <label><input type="radio" name="q14" value="a"> git save</label>
+            <label><input type="radio" name="q14" value="b"> git commit</label>
+            <label><input type="radio" name="q14" value="c"> git update</label>
+            <label><input type="radio" name="q14" value="d"> git store</label>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <h3>Question 15</h3>
+          <p class="question-text">Que signifie CRUD en développement ?</p>
+          <div class="options">
+            <label><input type="radio" name="q15" value="a"> Create, Read, Update, Delete</label>
+            <label><input type="radio" name="q15" value="b"> Copy, Remove, Undo, Deploy</label>
+            <label><input type="radio" name="q15" value="c"> Code, Run, Upload, Download</label>
+            <label><input type="radio" name="q15" value="d"> Compile, Review, Update, Debug</label>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <h3>Question 16</h3>
+          <p class="question-text">Quelle méthode HTTP est utilisée pour récupérer des données ?</p>
+          <div class="options">
+            <label><input type="radio" name="q16" value="a"> POST</label>
+            <label><input type="radio" name="q16" value="b"> GET</label>
+            <label><input type="radio" name="q16" value="c"> DELETE</label>
+            <label><input type="radio" name="q16" value="d"> PUT</label>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <h3>Question 17</h3>
+          <p class="question-text">Quelle méthode HTTP est utilisée pour créer une nouvelle ressource ?</p>
+          <div class="options">
+            <label><input type="radio" name="q17" value="a"> GET</label>
+            <label><input type="radio" name="q17" value="b"> POST</label>
+            <label><input type="radio" name="q17" value="c"> DELETE</label>
+            <label><input type="radio" name="q17" value="d"> PATCH</label>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <h3>Question 18</h3>
+          <p class="question-text">Qu'est-ce qu'un endpoint dans une API ?</p>
+          <div class="options">
+            <label><input type="radio" name="q18" value="a"> La fin d'un programme</label>
+            <label><input type="radio" name="q18" value="b"> Un point d'accès à une ressource spécifique</label>
+            <label><input type="radio" name="q18" value="c"> Une erreur de code</label>
+            <label><input type="radio" name="q18" value="d"> Un type de variable</label>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <h3>Question 19</h3>
+          <p class="question-text">Pourquoi faire des pauses est-il important en programmation ?</p>
+          <div class="options">
+            <label><input type="radio" name="q19" value="a"> Pour perdre du temps</label>
+            <label><input type="radio" name="q19" value="b"> Pour mieux résoudre les problèmes</label>
+            <label><input type="radio" name="q19" value="c"> Ce n'est pas important</label>
+            <label><input type="radio" name="q19" value="d"> Pour éviter de travailler</label>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <h3>Question 20</h3>
+          <p class="question-text">Qu'est-ce que le mentorat en développement ?</p>
+          <div class="options">
+            <label><input type="radio" name="q20" value="a"> Un logiciel de développement</label>
+            <label><input type="radio" name="q20" value="b"> L'accompagnement par un développeur expérimenté</label>
+            <label><input type="radio" name="q20" value="c"> Une méthode de test</label>
+            <label><input type="radio" name="q20" value="d"> Un langage de programmation</label>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn" onclick="submitQCM(1)">Soumettre le QCM 1</button>
+        </div>
+      </form>
+
+      <div id="results-1" class="results-container" style="display: none;">
+        <h2>Résultats du QCM Niveau 1</h2>
+        <div class="result-summary">
+          <div class="result-item">
+            <span class="result-label">Score:</span>
+            <span class="result-value" id="final-score-1">0/20</span>
+          </div>
+          <div class="result-item">
+            <span class="result-label">Pourcentage:</span>
+            <span class="result-value" id="final-percentage-1">0%</span>
+          </div>
+          <div class="result-item">
+            <span class="result-label">Note:</span>
+            <span class="result-value" id="final-grade-1">0/20</span>
+          </div>
+          <div class="result-item">
+            <span class="result-label">Temps écoulé:</span>
+            <span class="result-value" id="final-time-1">00:00</span>
+          </div>
+        </div>
+        <div class="result-actions">
+          <button class="btn" onclick="retryQCM(1)">Recommencer</button>
+          <button class="btn btn-secondary" onclick="exportResults(1)">Exporter les résultats (PDF)</button>
+          <button class="btn" onclick="sendByEmail(1)">Envoyer par email</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- QCM Niveau 2 et 3 seront créés de manière similaire -->
+    <!-- Pour la démo, je vais créer des structures simplifiées -->
+
+    <div id="qcm-2" class="qcm-container">
+      <div class="qcm-info">
+        <h2>QCM Niveau 2 - Intermédiaire</h2>
+        <p>20 questions pour approfondir vos connaissances</p>
+        <p class="coming-soon">Ce QCM sera disponible après avoir complété le Niveau 1</p>
+      </div>
+    </div>
+
+    <div id="qcm-3" class="qcm-container">
+      <div class="qcm-info">
+        <h2>QCM Niveau 3 - Avancé</h2>
+        <p>20 questions pour les experts</p>
+        <p class="coming-soon">Ce QCM sera disponible après avoir complété le Niveau 2</p>
+      </div>
+    </div>
+
+    <div class="navigation-buttons">
+      <a href="/activites" class="btn btn-secondary">Retour aux activités</a>
+    </div>
+  </div>
+
+  <script is:inline>
+    const qcm1Answers = {
+      q1: 'b', q2: 'b', q3: 'b', q4: 'c', q5: 'b',
+      q6: 'b', q7: 'b', q8: 'b', q9: 'b', q10: 'b',
+      q11: 'b', q12: 'b', q13: 'b', q14: 'b', q15: 'a',
+      q16: 'b', q17: 'b', q18: 'b', q19: 'b', q20: 'b'
+    };
+
+    let timers = {};
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const studentInfo = JSON.parse(localStorage.getItem('studentInfo') || '{}');
+      const infoDiv = document.getElementById('student-info');
+      if (studentInfo.nom && studentInfo.prenom) {
+        infoDiv.innerHTML = `
+          <p><strong>Étudiant(e) :</strong> ${studentInfo.prenom} ${studentInfo.nom}</p>
+          <p><strong>Classe :</strong> ${studentInfo.classe}</p>
+          <p><strong>Date :</strong> ${studentInfo.date}</p>
+        `;
+      }
+
+      startTimer(1);
+      loadQCMProgress(1);
+    });
+
+    function showQCM(num) {
+      document.querySelectorAll('.qcm-tab').forEach(tab => tab.classList.remove('active'));
+      document.querySelectorAll('.qcm-container').forEach(container => container.classList.remove('active'));
+      
+      event.target.classList.add('active');
+      document.getElementById(`qcm-${num}`).classList.add('active');
+    }
+
+    function startTimer(qcmNum) {
+      let seconds = 0;
+      timers[qcmNum] = setInterval(() => {
+        seconds++;
+        const minutes = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        document.getElementById(`timer-${qcmNum}`).textContent = 
+          `Temps: ${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+      }, 1000);
+    }
+
+    function stopTimer(qcmNum) {
+      if (timers[qcmNum]) {
+        clearInterval(timers[qcmNum]);
+      }
+    }
+
+    function submitQCM(qcmNum) {
+      const form = document.getElementById(`form-qcm-${qcmNum}`);
+      const formData = new FormData(form);
+      let score = 0;
+      const answers = qcm1Answers;
+
+      for (let [key, value] of formData.entries()) {
+        if (answers[key] === value) {
+          score++;
+        }
+      }
+
+      const percentage = Math.round((score / 20) * 100);
+      const grade = (score / 20) * 20;
+
+      document.getElementById(`final-score-${qcmNum}`).textContent = `${score}/20`;
+      document.getElementById(`final-percentage-${qcmNum}`).textContent = `${percentage}%`;
+      document.getElementById(`final-grade-${qcmNum}`).textContent = `${grade.toFixed(1)}/20`;
+      document.getElementById(`final-time-${qcmNum}`).textContent = 
+        document.getElementById(`timer-${qcmNum}`).textContent.replace('Temps: ', '');
+
+      stopTimer(qcmNum);
+
+      const results = {
+        qcmNum,
+        score,
+        percentage,
+        grade,
+        time: document.getElementById(`timer-${qcmNum}`).textContent.replace('Temps: ', ''),
+        date: new Date().toISOString()
+      };
+
+      localStorage.setItem(`qcm${qcmNum}Results`, JSON.stringify(results));
+
+      form.style.display = 'none';
+      document.getElementById(`results-${qcmNum}`).style.display = 'block';
+    }
+
+    function retryQCM(qcmNum) {
+      const form = document.getElementById(`form-qcm-${qcmNum}`);
+      form.reset();
+      form.style.display = 'block';
+      document.getElementById(`results-${qcmNum}`).style.display = 'none';
+      
+      document.getElementById(`score-${qcmNum}`).textContent = 'Score: 0/20';
+      startTimer(qcmNum);
+    }
+
+    function exportResults(qcmNum) {
+      const studentInfo = JSON.parse(localStorage.getItem('studentInfo') || '{}');
+      const results = JSON.parse(localStorage.getItem(`qcm${qcmNum}Results`) || '{}');
+
+      const content = `
+        LES 5 CONCEPTS CLÉS DU DÉVELOPPEMENT
+        QCM Niveau ${qcmNum} - Résultats
+        
+        Étudiant: ${studentInfo.prenom} ${studentInfo.nom}
+        Classe: ${studentInfo.classe}
+        Date: ${studentInfo.date}
+        
+        Score: ${results.score}/20
+        Pourcentage: ${results.percentage}%
+        Note: ${results.grade}/20
+        Temps: ${results.time}
+        
+        © 2026 Eric MORMIN - EKM Conseils
+        https://www.ekmconseils.eu
+      `;
+
+      const blob = new Blob([content], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `QCM_Niveau${qcmNum}_${studentInfo.nom}_${studentInfo.prenom}.txt`;
+      a.click();
+      
+      alert('Résultats exportés ! Pour une meilleure présentation PDF, utilisez la fonction d\'impression du navigateur.');
+    }
+
+    function sendByEmail(qcmNum) {
+      const studentInfo = JSON.parse(localStorage.getItem('studentInfo') || '{}');
+      const results = JSON.parse(localStorage.getItem(`qcm${qcmNum}Results`) || '{}');
+
+      const subject = `Résultats QCM Niveau ${qcmNum} - ${studentInfo.prenom} ${studentInfo.nom}`;
+      const body = `
+Bonjour,
+
+Voici mes résultats pour le QCM Niveau ${qcmNum}:
+
+Étudiant: ${studentInfo.prenom} ${studentInfo.nom}
+Classe: ${studentInfo.classe}
+Date: ${studentInfo.date}
+
+Score: ${results.score}/20
+Pourcentage: ${results.percentage}%
+Note: ${results.grade}/20
+Temps: ${results.time}
+
+Cordialement,
+${studentInfo.prenom} ${studentInfo.nom}
+      `;
+
+      window.location.href = `mailto:contact@ekm-conseils.eu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    }
+
+    function loadQCMProgress(qcmNum) {
+      const savedData = localStorage.getItem(`qcm${qcmNum}Progress`);
+      if (savedData) {
+        const data = JSON.parse(savedData);
+        Object.keys(data).forEach(key => {
+          const input = document.querySelector(`input[name="${key}"][value="${data[key]}"]`);
+          if (input) input.checked = true;
+        });
+      }
+    }
+
+    document.getElementById('form-qcm-1')?.addEventListener('change', () => {
+      const form = document.getElementById('form-qcm-1');
+      const formData = new FormData(form);
+      const data = {};
+      for (let [key, value] of formData.entries()) {
+        data[key] = value;
+      }
+      localStorage.setItem('qcm1Progress', JSON.stringify(data));
+    });
+  </script>
+
+  <style>
+    .student-info {
+      background-color: var(--white);
+      padding: 20px;
+      border-radius: var(--border-radius);
+      margin-bottom: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .student-info p {
+      margin: 5px 0;
+    }
+
+    .qcm-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .qcm-title {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+
+    .qcm-subtitle {
+      font-size: 1.2rem;
+      color: #666;
+    }
+
+    .qcm-selector {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .qcm-tab {
+      padding: 12px 25px;
+      background-color: var(--white);
+      border: 2px solid var(--primary-color);
+      color: var(--primary-color);
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .qcm-tab:hover {
+      background-color: var(--primary-color);
+      color: white;
+    }
+
+    .qcm-tab.active {
+      background-color: var(--primary-color);
+      color: white;
+    }
+
+    .qcm-container {
+      display: none;
+    }
+
+    .qcm-container.active {
+      display: block;
+    }
+
+    .qcm-info {
+      background-color: var(--white);
+      padding: 30px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 30px;
+    }
+
+    .qcm-info h2 {
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+
+    .qcm-stats {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 2px solid #e0e0e0;
+    }
+
+    .timer, .score {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+
+    .qcm-form {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .question-card {
+      background-color: var(--white);
+      padding: 25px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+    }
+
+    .question-card h3 {
+      color: var(--primary-color);
+      margin-bottom: 15px;
+    }
+
+    .question-text {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 20px;
+      color: var(--text-color);
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .options label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      background-color: #f9f9f9;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .options label:hover {
+      background-color: #e3f2fd;
+      transform: translateX(5px);
+    }
+
+    .options input[type="radio"] {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    .form-actions {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .results-container {
+      background-color: var(--white);
+      padding: 40px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .results-container h2 {
+      color: var(--primary-color);
+      margin-bottom: 30px;
+    }
+
+    .result-summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .result-item {
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: var(--border-radius);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .result-label {
+      font-weight: 600;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    .result-value {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+
+    .result-actions {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .coming-soon {
+      font-style: italic;
+      color: #999;
+      margin-top: 20px;
+    }
+
+    .navigation-buttons {
+      text-align: center;
+      margin: 50px 0;
+    }
+
+    @media (max-width: 768px) {
+      .qcm-selector {
+        flex-direction: column;
+      }
+
+      .qcm-tab {
+        width: 100%;
+      }
+
+      .qcm-stats {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .result-actions {
+        flex-direction: column;
+      }
+
+      .result-actions .btn {
+        width: 100%;
+      }
+    }
+
+    @media print {
+      .qcm-selector,
+      .form-actions,
+      .result-actions,
+      .navigation-buttons {
+        display: none;
+      }
+    }
+  </style>
+</Layout>

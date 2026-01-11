@@ -1,0 +1,563 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Cours">
+  <div class="container">
+    <div class="student-info" id="student-info"></div>
+
+    <div class="course-header">
+      <h1 class="course-title">Les 5 Concepts Clés du Développement</h1>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+      <p class="progress-text" id="progress-text">Progression : 0%</p>
+    </div>
+
+    <div class="concepts-container">
+      <!-- Concept 1: API -->
+      <div id="concept-1" class="concept-section" data-concept="1">
+        <div class="concept-header">
+          <span class="concept-badge">Concept 1</span>
+          <h2>Comprendre les API (Application Programming Interface)</h2>
+        </div>
+
+        <div class="concept-content">
+          <div class="definition">
+            <h3>Définition simple</h3>
+            <p>Une API est comme un manuel d'instructions qui permet à deux systèmes de communiquer entre eux. Que ce soit entre un site web et un serveur ou une application mobile et une base de données, les API jouent un rôle crucial.</p>
+          </div>
+
+          <div class="example">
+            <h3>Exemple concret</h3>
+            <p>Pensez à une recette de cuisine. La recette vous explique comment utiliser des ingrédients pour créer un plat. De la même manière, une API décrit comment différents systèmes échangent des informations.</p>
+          </div>
+
+          <div class="objectives">
+            <h3>Objectifs d'apprentissage</h3>
+            <ul>
+              <li>Comprendre la structure d'une API REST</li>
+              <li>Savoir créer et consommer une API simple</li>
+            </ul>
+          </div>
+
+          <div class="interactive-question" data-question="1">
+            <h3>Question de compréhension</h3>
+            <p class="question-text">Qu'est-ce qu'une API REST ?</p>
+            <div class="answers">
+              <label class="answer-option">
+                <input type="radio" name="q1" value="a" />
+                <span>Un langage de programmation</span>
+              </label>
+              <label class="answer-option">
+                <input type="radio" name="q1" value="b" />
+                <span>Une interface permettant la communication entre systèmes via HTTP</span>
+              </label>
+              <label class="answer-option">
+                <input type="radio" name="q1" value="c" />
+                <span>Un type de base de données</span>
+              </label>
+            </div>
+            <button class="btn-validate" onclick="validateAnswer(1, 'b')">Valider</button>
+            <div class="feedback" id="feedback-1"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Concept 2: Rôles Tech -->
+      <div id="concept-2" class="concept-section" data-concept="2">
+        <div class="concept-header">
+          <span class="concept-badge">Concept 2</span>
+          <h2>Comprendre les différents rôles dans la technologie</h2>
+        </div>
+
+        <div class="concept-content">
+          <div class="definition">
+            <h3>Définition simple</h3>
+            <p>Le domaine du développement est vaste, et il existe de nombreux rôles différents : développeur backend, développeur frontend, full-stack, ingénieur logiciel, etc. Chaque rôle se spécialise dans une partie précise du développement.</p>
+          </div>
+
+          <div class="example">
+            <h3>Exemple concret</h3>
+            <p>Imaginez que vous construisez un site web. Un développeur backend gère le serveur et la base de données, tandis qu'un développeur frontend crée l'interface utilisateur.</p>
+          </div>
+
+          <div class="roles-list">
+            <h3>Principaux rôles technologiques</h3>
+            <ul>
+              <li><strong>Développeur Backend :</strong> Gestion du serveur, bases de données, logique métier</li>
+              <li><strong>Développeur Frontend :</strong> Interfaces utilisateur, expérience utilisateur</li>
+              <li><strong>Développeur Full-Stack :</strong> Backend et Frontend</li>
+              <li><strong>Data Scientist :</strong> Analyse de données, algorithmes</li>
+              <li><strong>DevOps :</strong> Automatisation, déploiement, infrastructure</li>
+            </ul>
+          </div>
+
+          <div class="interactive-question" data-question="2">
+            <h3>Question de compréhension</h3>
+            <p class="question-text">Quel rôle s'occupe principalement de l'interface utilisateur ?</p>
+            <div class="answers">
+              <label class="answer-option">
+                <input type="radio" name="q2" value="a" />
+                <span>Développeur Backend</span>
+              </label>
+              <label class="answer-option">
+                <input type="radio" name="q2" value="b" />
+                <span>Développeur Frontend</span>
+              </label>
+              <label class="answer-option">
+                <input type="radio" name="q2" value="c" />
+                <span>Data Scientist</span>
+              </label>
+            </div>
+            <button class="btn-validate" onclick="validateAnswer(2, 'b')">Valider</button>
+            <div class="feedback" id="feedback-2"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Concept 3: Spécialisation -->
+      <div id="concept-3" class="concept-section" data-concept="3">
+        <div class="concept-header">
+          <span class="concept-badge">Concept 3</span>
+          <h2>L'importance de se spécialiser</h2>
+        </div>
+
+        <div class="concept-content">
+          <div class="definition">
+            <h3>Définition simple</h3>
+            <p>Essayer de tout apprendre au début peut être tentant, mais il est souvent plus efficace de se spécialiser dans un domaine précis. Cela vous permet de devenir expert dans une technologie ou un aspect spécifique.</p>
+          </div>
+
+          <div class="example">
+            <h3>Exemple concret</h3>
+            <p>Si vous vous spécialisez dans le développement frontend avec React ou Angular, vous pouvez mieux maîtriser cet outil et offrir une expertise précise plutôt que de jongler avec plusieurs langages sans en maîtriser un complètement.</p>
+          </div>
+
+          <div class="objectives">
+            <h3>Objectifs d'apprentissage</h3>
+            <ul>
+              <li>Déterminer une spécialisation technologique (ex : backend avec Node.js, frontend avec React)</li>
+              <li>Comprendre pourquoi la spécialisation est un avantage à long terme</li>
+            </ul>
+          </div>
+
+          <div class="interactive-question" data-question="3">
+            <h3>Question de compréhension</h3>
+            <p class="question-text">Pourquoi est-il recommandé de se spécialiser ?</p>
+            <div class="answers">
+              <label class="answer-option">
+                <input type="radio" name="q3" value="a" />
+                <span>Pour limiter ses compétences</span>
+              </label>
+              <label class="answer-option">
+                <input type="radio" name="q3" value="b" />
+                <span>Pour devenir expert dans un domaine précis</span>
+              </label>
+              <label class="answer-option">
+                <input type="radio" name="q3" value="c" />
+                <span>Pour éviter d'apprendre de nouvelles technologies</span>
+              </label>
+            </div>
+            <button class="btn-validate" onclick="validateAnswer(3, 'b')">Valider</button>
+            <div class="feedback" id="feedback-3"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Concept 4: Time Management -->
+      <div id="concept-4" class="concept-section" data-concept="4">
+        <div class="concept-header">
+          <span class="concept-badge">Concept 4</span>
+          <h2>Gérer efficacement son temps</h2>
+        </div>
+
+        <div class="concept-content">
+          <div class="definition">
+            <h3>Définition simple</h3>
+            <p>Travailler sans plan peut être contre-productif. Gérer son temps et faire des pauses lorsqu'on est bloqué permet souvent de résoudre des problèmes plus rapidement.</p>
+          </div>
+
+          <div class="example">
+            <h3>Exemple concret</h3>
+            <p>Vous êtes bloqué sur une requête SQL pendant des heures ? Une pause ou une nuit de repos peut vous aider à trouver une solution rapidement le lendemain.</p>
+          </div>
+
+          <div class="technique">
+            <h3>Technique Pomodoro</h3>
+            <p>Travailler par sessions de 25 minutes suivies de pauses de 5 minutes. Après 4 sessions, prendre une pause plus longue de 15-30 minutes.</p>
+          </div>
+
+          <div class="interactive-question" data-question="4">
+            <h3>Question de compréhension</h3>
+            <p class="question-text">Quelle est la durée recommandée d'une session de travail avec la technique Pomodoro ?</p>
+            <div class="answers">
+              <label class="answer-option">
+                <input type="radio" name="q4" value="a" />
+                <span>10 minutes</span>
+              </label>
+              <label class="answer-option">
+                <input type="radio" name="q4" value="b" />
+                <span>25 minutes</span>
+              </label>
+              <label class="answer-option">
+                <input type="radio" name="q4" value="c" />
+                <span>60 minutes</span>
+              </label>
+            </div>
+            <button class="btn-validate" onclick="validateAnswer(4, 'b')">Valider</button>
+            <div class="feedback" id="feedback-4"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Concept 5: Teamwork -->
+      <div id="concept-5" class="concept-section" data-concept="5">
+        <div class="concept-header">
+          <span class="concept-badge">Concept 5</span>
+          <h2>Travailler en équipe et l'importance du réseau</h2>
+        </div>
+
+        <div class="concept-content">
+          <div class="definition">
+            <h3>Définition simple</h3>
+            <p>Travailler en équipe, utiliser Git pour versionner du code, et partager des connaissances avec des collègues sont des compétences aussi importantes que la maîtrise du code lui-même.</p>
+          </div>
+
+          <div class="example">
+            <h3>Exemple concret</h3>
+            <p>Au lieu de s'envoyer des fichiers par e-mail, les équipes utilisent Git pour suivre les changements et fusionner leur travail de manière fluide.</p>
+          </div>
+
+          <div class="git-commands">
+            <h3>Commandes Git essentielles</h3>
+            <ul>
+              <li><code>git init</code> - Initialiser un dépôt</li>
+              <li><code>git add</code> - Ajouter des fichiers</li>
+              <li><code>git commit</code> - Valider les changements</li>
+              <li><code>git push</code> - Envoyer vers le serveur</li>
+              <li><code>git pull</code> - Récupérer les changements</li>
+            </ul>
+          </div>
+
+          <div class="interactive-question" data-question="5">
+            <h3>Question de compréhension</h3>
+            <p class="question-text">Quel outil est principalement utilisé pour versionner du code en équipe ?</p>
+            <div class="answers">
+              <label class="answer-option">
+                <input type="radio" name="q5" value="a" />
+                <span>Email</span>
+              </label>
+              <label class="answer-option">
+                <input type="radio" name="q5" value="b" />
+                <span>Git</span>
+              </label>
+              <label class="answer-option">
+                <input type="radio" name="q5" value="c" />
+                <span>Word</span>
+              </label>
+            </div>
+            <button class="btn-validate" onclick="validateAnswer(5, 'b')">Valider</button>
+            <div class="feedback" id="feedback-5"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="navigation-buttons">
+      <a href="/activites" class="btn btn-secondary">Passer aux activités pratiques</a>
+    </div>
+  </div>
+
+  <script is:inline>
+    // Initialisation
+    document.addEventListener('DOMContentLoaded', () => {
+      // Afficher les informations de l'étudiant
+      const studentInfo = JSON.parse(localStorage.getItem('studentInfo') || '{}');
+      const infoDiv = document.getElementById('student-info');
+      if (studentInfo.nom && studentInfo.prenom) {
+        infoDiv.innerHTML = `
+          <p><strong>Étudiant(e) :</strong> ${studentInfo.prenom} ${studentInfo.nom}</p>
+          <p><strong>Classe :</strong> ${studentInfo.classe}</p>
+          <p><strong>Date :</strong> ${studentInfo.date}</p>
+        `;
+      }
+
+      // Charger les réponses sauvegardées
+      loadAnswers();
+      updateProgress();
+    });
+
+    // Validation des réponses
+    function validateAnswer(questionNum, correctAnswer) {
+      const selected = document.querySelector(`input[name="q${questionNum}"]:checked`);
+      const feedback = document.getElementById(`feedback-${questionNum}`);
+      
+      if (!selected) {
+        feedback.innerHTML = '<p class="error">Veuillez sélectionner une réponse</p>';
+        return;
+      }
+
+      const isCorrect = selected.value === correctAnswer;
+      
+      if (isCorrect) {
+        feedback.innerHTML = '<p class="success">✓ Correct ! Bonne réponse.</p>';
+      } else {
+        feedback.innerHTML = '<p class="error">✗ Incorrect. Réessayez ou consultez à nouveau le cours.</p>';
+      }
+
+      // Sauvegarder la réponse
+      saveAnswer(questionNum, selected.value, isCorrect);
+      updateProgress();
+    }
+
+    // Sauvegarder les réponses
+    function saveAnswer(questionNum, answer, isCorrect) {
+      let answers = JSON.parse(localStorage.getItem('courseAnswers') || '{}');
+      answers[`q${questionNum}`] = { answer, isCorrect, timestamp: new Date().toISOString() };
+      localStorage.setItem('courseAnswers', JSON.stringify(answers));
+    }
+
+    // Charger les réponses
+    function loadAnswers() {
+      const answers = JSON.parse(localStorage.getItem('courseAnswers') || '{}');
+      Object.keys(answers).forEach(key => {
+        const questionNum = key.substring(1);
+        const answerData = answers[key];
+        const radio = document.querySelector(`input[name="${key}"][value="${answerData.answer}"]`);
+        if (radio) {
+          radio.checked = true;
+          const feedback = document.getElementById(`feedback-${questionNum}`);
+          if (answerData.isCorrect) {
+            feedback.innerHTML = '<p class="success">✓ Correct ! Bonne réponse.</p>';
+          } else {
+            feedback.innerHTML = '<p class="error">✗ Incorrect. Réessayez ou consultez à nouveau le cours.</p>';
+          }
+        }
+      });
+    }
+
+    // Mettre à jour la progression
+    function updateProgress() {
+      const answers = JSON.parse(localStorage.getItem('courseAnswers') || '{}');
+      const totalQuestions = 5;
+      const answeredQuestions = Object.keys(answers).length;
+      const percentage = Math.round((answeredQuestions / totalQuestions) * 100);
+      
+      const progressFill = document.getElementById('progress-fill');
+      const progressText = document.getElementById('progress-text');
+      
+      progressFill.style.width = `${percentage}%`;
+      progressText.textContent = `Progression : ${percentage}%`;
+    }
+  </script>
+
+  <style>
+    .student-info {
+      background-color: var(--white);
+      padding: 20px;
+      border-radius: var(--border-radius);
+      margin-bottom: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .student-info p {
+      margin: 5px 0;
+    }
+
+    .course-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .course-title {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 30px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 30px;
+      background-color: #e0e0e0;
+      border-radius: 15px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+      transition: width 0.5s ease;
+      width: 0%;
+    }
+
+    .progress-text {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+
+    .concepts-container {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .concept-section {
+      background-color: var(--white);
+      border-radius: var(--border-radius);
+      padding: 40px;
+      box-shadow: var(--shadow);
+    }
+
+    .concept-header {
+      margin-bottom: 30px;
+    }
+
+    .concept-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .concept-header h2 {
+      font-size: 2rem;
+      color: var(--primary-color);
+      margin-top: 10px;
+    }
+
+    .concept-content > div {
+      margin-bottom: 30px;
+    }
+
+    .concept-content h3 {
+      color: var(--secondary-color);
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+    }
+
+    .definition,
+    .example,
+    .objectives,
+    .technique,
+    .roles-list,
+    .git-commands {
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-left: 4px solid var(--primary-color);
+      border-radius: 4px;
+    }
+
+    .interactive-question {
+      background-color: #e3f2fd;
+      padding: 30px;
+      border-radius: var(--border-radius);
+      border: 2px solid var(--primary-color);
+    }
+
+    .question-text {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: var(--primary-color);
+    }
+
+    .answers {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .answer-option {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 15px;
+      background-color: white;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .answer-option:hover {
+      background-color: #f0f0f0;
+      transform: translateX(5px);
+    }
+
+    .answer-option input[type="radio"] {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    .answer-option span {
+      flex: 1;
+      font-size: 1.1rem;
+    }
+
+    .btn-validate {
+      background-color: var(--accent-color);
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: var(--border-radius);
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-validate:hover {
+      background-color: #e55a2b;
+      transform: translateY(-2px);
+    }
+
+    .feedback {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: var(--border-radius);
+    }
+
+    .feedback .success {
+      color: #2e7d32;
+      background-color: #c8e6c9;
+      padding: 10px;
+      border-radius: 4px;
+    }
+
+    .feedback .error {
+      color: #c62828;
+      background-color: #ffcdd2;
+      padding: 10px;
+      border-radius: 4px;
+    }
+
+    .navigation-buttons {
+      text-align: center;
+      margin: 50px 0;
+    }
+
+    code {
+      background-color: #f5f5f5;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+      color: var(--primary-color);
+    }
+
+    @media (max-width: 768px) {
+      .concept-section {
+        padding: 20px;
+      }
+
+      .concept-header h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</Layout>
