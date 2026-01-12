@@ -229,17 +229,311 @@ import Layout from '../layouts/Layout.astro';
             <p>Au lieu de s'envoyer des fichiers par e-mail, les équipes utilisent Git pour suivre les changements et fusionner leur travail de manière fluide.</p>
           </div>
 
-          <div class="git-commands">
-            <h3>Commandes Git essentielles</h3>
-            <ul>
-              <li><code>git init</code> - Initialiser un dépôt</li>
-              <li><code>git add</code> - Ajouter des fichiers</li>
-              <li><code>git commit</code> - Valider les changements</li>
-              <li><code>git push</code> - Envoyer vers le serveur</li>
-              <li><code>git pull</code> - Récupérer les changements</li>
-            </ul>
+          <!-- Section Git/GitHub Procédure Complète -->
+          <div class="git-procedure-section">
+            <h2 class="procedure-title">📚 Procédure Complète Git & GitHub pour Élèves</h2>
+            
+            <!-- Workflow de base -->
+            <div class="git-subsection">
+              <div class="subsection-header">
+                <h3>1) Workflow de base (local uniquement) — 4 étapes fondamentales</h3>
+                <span class="tag-badge">Débutant</span>
+              </div>
+              <div class="subsection-body">
+                <div class="callout callout-info">
+                  <strong>💡 Prérequis</strong>
+                  <p>Vous avez un projet local (ex : dossier <code>mon-projet</code>) contenant des fichiers (HTML, CSS, JS, etc.).</p>
+                </div>
+
+                <h4>Étape 1 — Initialiser Git</h4>
+                <pre><code>{`cd mon-projet
+git init`}</code></pre>
+                <p class="text-muted">Résultat : Git crée un dossier caché <code>.git</code> qui contiendra tout l'historique.</p>
+
+                <h4>Étape 2 — Voir ce qui a changé</h4>
+                <pre><code>{`git status`}</code></pre>
+                <p class="text-muted">Liste les fichiers modifiés, ajoutés ou supprimés depuis le dernier commit.</p>
+
+                <h4>Étape 3 — Ajouter les fichiers au "staging"</h4>
+                <pre><code>{`git add .`}</code></pre>
+                <p class="text-muted"><code>.</code> = tous les fichiers. Vous pouvez aussi faire <code>git add fichier.html</code> pour un seul fichier.</p>
+
+                <h4>Étape 4 — Créer un "commit" (point d'historique)</h4>
+                <pre><code>{`git commit -m "Ajout page accueil"`}</code></pre>
+                <p class="text-muted">Le message entre guillemets décrit ce que vous avez fait.</p>
+
+                <div class="callout callout-success">
+                  <strong>✅ Résultat</strong>
+                  <p>Vous avez créé un "checkpoint" dans Git. Si vous cassez tout plus tard, vous pourrez revenir ici.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Workflow avec GitHub -->
+            <div class="git-subsection">
+              <div class="subsection-header">
+                <h3>2) Workflow avec repo GitHub — Se connecter au "cloud"</h3>
+                <span class="tag-badge">Essentiel</span>
+              </div>
+              <div class="subsection-body">
+                <div class="callout callout-warning">
+                  <strong>⚠️ Important</strong>
+                  <p>Créez d'abord un repo vide sur GitHub (sans README, sans .gitignore) avant de continuer.</p>
+                </div>
+
+                <h4>Étape 1 — Lier votre projet local à GitHub</h4>
+                <pre><code>{`git remote add origin https://github.com/VOTRE_COMPTE/VOTRE_REPO.git`}</code></pre>
+
+                <h4>Étape 2 — Vérifier que ça a marché</h4>
+                <pre><code>{`git remote -v`}</code></pre>
+                <p class="text-muted">Vous devriez voir 2 lignes : <code>origin ... (fetch)</code> et <code>origin ... (push)</code>.</p>
+
+                <h4>Étape 3 — Envoyer votre code sur GitHub</h4>
+                <pre><code>{`git branch -M main
+git push -u origin main`}</code></pre>
+                <p class="text-muted">La première ligne renomme votre branche en <code>main</code>. La seconde envoie tout.</p>
+
+                <div class="callout callout-success">
+                  <strong>✅ Résultat</strong>
+                  <p>Votre code est maintenant sur GitHub. Actualisez la page de votre repo : il doit contenir vos fichiers.</p>
+                </div>
+
+                <h4>Workflow quotidien (après le premier push)</h4>
+                <ol class="git-steps">
+                  <li>Modifiez vos fichiers</li>
+                  <li><code>git status</code> pour voir ce qui a changé</li>
+                  <li><code>git add .</code> pour tout ajouter</li>
+                  <li><code>git commit -m "..."</code> pour valider</li>
+                  <li><code>git push</code> pour envoyer sur GitHub</li>
+                </ol>
+              </div>
+            </div>
+
+            <!-- Niveau 2: Branches -->
+            <div class="git-subsection">
+              <div class="subsection-header">
+                <h3>3) Niveau 2 (branches) — Travailler sans casser la version principale</h3>
+                <span class="tag-badge">Intermédiaire</span>
+              </div>
+              <div class="subsection-body">
+                <h4>Créer une branche</h4>
+                <pre><code>{`git checkout -b feature-qcm`}</code></pre>
+                <p class="text-muted">Vous êtes maintenant sur une copie isolée de votre code.</p>
+
+                <h4>Travailler puis commit</h4>
+                <pre><code>{`git add .
+git commit -m "Add QCM page"`}</code></pre>
+
+                <h4>Envoyer la branche sur GitHub</h4>
+                <pre><code>{`git push -u origin feature-qcm`}</code></pre>
+
+                <h4>Revenir sur main</h4>
+                <pre><code>{`git checkout main`}</code></pre>
+
+                <div class="callout callout-info">
+                  <strong>💡 À quoi ça sert ?</strong>
+                  <p>Une branche sert à travailler <strong>sans casser</strong> la version principale (<code>main</code>).</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Check-list finale -->
+            <div class="git-subsection">
+              <div class="subsection-header">
+                <h3>4) Check-list "avant de dire c'est fini"</h3>
+                <span class="tag-badge">Contrôle final</span>
+              </div>
+              <div class="subsection-body">
+                <pre><code>{`git status
+git log --oneline -5
+git remote -v`}</code></pre>
+                <p class="text-muted">Si <code>git status</code> indique "nothing to commit, working tree clean", c'est bon.</p>
+              </div>
+            </div>
+
+            <!-- Variante ultra-courte -->
+            <div class="git-subsection">
+              <div class="subsection-header">
+                <h3>5) Variante "ultra-courte" (5 lignes à retenir)</h3>
+                <span class="tag-badge">Mémo rapide</span>
+              </div>
+              <div class="subsection-body">
+                <ol class="git-quick-steps">
+                  <li><code>cd mon-projet</code></li>
+                  <li><code>git status</code></li>
+                  <li><code>git add .</code></li>
+                  <li><code>git commit -m "..."</code></li>
+                  <li><code>git push</code></li>
+                </ol>
+
+                <div class="callout callout-info">
+                  <strong>💡 Astuce</strong>
+                  <p>Si <code>git push</code> échoue : faire <code>git pull</code> puis recommencer <code>git push</code>.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tableau des commandes -->
+            <div class="git-subsection">
+              <div class="subsection-header">
+                <h3>6) Tableau des commandes Git essentielles</h3>
+                <span class="tag-badge">Référence</span>
+              </div>
+              <div class="subsection-body">
+                <div class="git-table-wrapper">
+                  <table class="git-commands-table">
+                    <thead>
+                      <tr>
+                        <th>Commande</th>
+                        <th>Utilité</th>
+                        <th>Exemple</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>git init</code></td>
+                        <td>Créer un repo Git local dans le dossier</td>
+                        <td><code>git init</code></td>
+                      </tr>
+                      <tr>
+                        <td><code>git status</code></td>
+                        <td>Voir les fichiers modifiés / staged / non suivis</td>
+                        <td><code>git status</code></td>
+                      </tr>
+                      <tr>
+                        <td><code>git add .</code></td>
+                        <td>Mettre tous les changements dans le staging</td>
+                        <td><code>git add .</code></td>
+                      </tr>
+                      <tr>
+                        <td><code>git commit -m "..."</code></td>
+                        <td>Créer un point d'historique avec un message</td>
+                        <td><code>git commit -m "Fix navbar"</code></td>
+                      </tr>
+                      <tr>
+                        <td><code>git remote -v</code></td>
+                        <td>Voir le repo distant configuré</td>
+                        <td><code>git remote -v</code></td>
+                      </tr>
+                      <tr>
+                        <td><code>git remote add origin URL</code></td>
+                        <td>Lier le repo local à GitHub</td>
+                        <td><code>git remote add origin https://github.com/x/y.git</code></td>
+                      </tr>
+                      <tr>
+                        <td><code>git push</code></td>
+                        <td>Envoyer les commits vers GitHub</td>
+                        <td><code>git push</code></td>
+                      </tr>
+                      <tr>
+                        <td><code>git pull</code></td>
+                        <td>Récupérer les commits depuis GitHub (sync)</td>
+                        <td><code>git pull</code></td>
+                      </tr>
+                      <tr>
+                        <td><code>git branch</code></td>
+                        <td>Lister les branches</td>
+                        <td><code>git branch</code></td>
+                      </tr>
+                      <tr>
+                        <td><code>git checkout -b nom</code></td>
+                        <td>Créer et basculer sur une branche</td>
+                        <td><code>git checkout -b feature-qcm</code></td>
+                      </tr>
+                      <tr>
+                        <td><code>git checkout main</code></td>
+                        <td>Revenir sur la branche principale</td>
+                        <td><code>git checkout main</code></td>
+                      </tr>
+                      <tr>
+                        <td><code>git log --oneline -5</code></td>
+                        <td>Voir les derniers commits (résumé)</td>
+                        <td><code>git log --oneline -5</code></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p class="text-muted small-text">Conseil : apprenez d'abord <code>status</code>, <code>add</code>, <code>commit</code>, <code>push</code>, <code>pull</code>. Le reste vient après.</p>
+              </div>
+            </div>
+
+            <!-- Mini-exercice pratique -->
+            <div class="git-subsection">
+              <div class="subsection-header">
+                <h3>7) Mini-exercice — "faire 2 commits + 1 push"</h3>
+                <span class="tag-badge">Pratique guidée</span>
+              </div>
+              <div class="subsection-body">
+                <div class="callout callout-info">
+                  <strong>🎯 Objectif</strong>
+                  <p>Vous devez prouver que vous savez : <strong>modifier</strong> → <strong>committer</strong> (2 fois) → <strong>pousser</strong> (1 fois) sur GitHub.</p>
+                </div>
+
+                <div class="exercise-grid">
+                  <div class="exercise-column">
+                    <h4>Pré-requis</h4>
+                    <ul>
+                      <li>Vous avez un projet (avec <code>public/</code> et <code>src/</code>)</li>
+                      <li>Vous avez un repo GitHub vide</li>
+                      <li>Vous avez déjà lié le remote (<code>origin</code>)</li>
+                    </ul>
+
+                    <h4>Étape 0 — Vérifier la situation</h4>
+                    <pre><code>{`git status
+git remote -v`}</code></pre>
+                  </div>
+
+                  <div class="exercise-column">
+                    <h4>Consigne de rendu</h4>
+                    <ul>
+                      <li>Sur GitHub : au moins <strong>2 commits</strong> visibles</li>
+                      <li>Messages des commits descriptifs</li>
+                      <li>Copier-coller de : <code>git log --oneline -5</code></li>
+                    </ul>
+                    <div class="callout callout-warning">
+                      <strong>⚠️ Attention</strong>
+                      <p>Ne faites pas <strong>un seul commit</strong> avec tout. On veut <strong>2 commits distincts</strong>.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <hr class="exercise-separator">
+
+                <h4>Commit 1 — Modifier un fichier puis committer</h4>
+                <ol class="exercise-steps">
+                  <li>Ouvrir <code>README.md</code> et ajouter : Nom, Prénom, Classe, Date</li>
+                  <li>Enregistrer le fichier</li>
+                </ol>
+                <pre><code>{`git status
+git add README.md
+git commit -m "docs: ajout identité élève dans README"`}</code></pre>
+
+                <h4>Commit 2 — Modifier un second fichier puis committer</h4>
+                <ol class="exercise-steps">
+                  <li>Ouvrir <code>src/pages/index.astro</code> et ajouter une phrase courte</li>
+                  <li>Enregistrer le fichier</li>
+                </ol>
+                <pre><code>{`git status
+git add src/pages/index.astro
+git commit -m "chore: test modification page accueil"`}</code></pre>
+
+                <h4>Push — Envoyer les deux commits en une fois</h4>
+                <pre><code>{`git push`}</code></pre>
+
+                <h4>Vérification finale</h4>
+                <pre><code>{`git log --oneline -5
+git status`}</code></pre>
+
+                <div class="callout callout-success">
+                  <strong>✅ Résultat attendu</strong>
+                  <p><code>git status</code> doit afficher : <strong>working tree clean</strong>. Sur GitHub, vos 2 commits sont visibles.</p>
+                </div>
+              </div>
+            </div>
+
           </div>
 
+          <!-- Question interactive (conservée) -->
           <div class="interactive-question" data-question="5">
             <h3>Question de compréhension</h3>
             <p class="question-text">Quel outil est principalement utilisé pour versionner du code en équipe ?</p>
@@ -550,6 +844,222 @@ import Layout from '../layouts/Layout.astro';
       color: var(--primary-color);
     }
 
+    /* Git/GitHub Procedure Section Styles */
+    .git-procedure-section {
+      margin-top: 40px;
+      padding-top: 30px;
+      border-top: 2px solid var(--secondary-color);
+    }
+
+    .procedure-title {
+      color: var(--primary-color);
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .git-subsection {
+      background-color: #f8f9fa;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .subsection-header {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .subsection-header h3 {
+      margin: 0;
+      font-size: 1.3rem;
+      color: white;
+    }
+
+    .subsection-header h4 {
+      margin: 15px 0 8px 0;
+      color: var(--text-color);
+      font-size: 1.1rem;
+    }
+
+    .tag-badge {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: white;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .subsection-body {
+      padding: 24px;
+    }
+
+    .subsection-body h4 {
+      color: var(--primary-color);
+      margin-top: 20px;
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+    }
+
+    .subsection-body pre {
+      background-color: #1e1e1e;
+      color: #d4d4d4;
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 12px 0;
+      border-left: 4px solid var(--accent-color);
+    }
+
+    .subsection-body code {
+      background-color: #1e1e1e;
+      color: #d4d4d4;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .subsection-body pre code {
+      background-color: transparent;
+      padding: 0;
+    }
+
+    .text-muted {
+      color: #6c757d;
+      font-size: 0.95rem;
+      margin-top: 8px;
+    }
+
+    .small-text {
+      font-size: 0.9rem;
+    }
+
+    /* Callouts */
+    .callout {
+      padding: 16px 20px;
+      border-radius: 8px;
+      margin: 16px 0;
+      border-left: 4px solid;
+    }
+
+    .callout-info {
+      background-color: #e3f2fd;
+      border-left-color: #2196f3;
+    }
+
+    .callout-info strong {
+      color: #1976d2;
+    }
+
+    .callout-success {
+      background-color: #e8f5e9;
+      border-left-color: #4caf50;
+    }
+
+    .callout-success strong {
+      color: #2e7d32;
+    }
+
+    .callout-warning {
+      background-color: #fff3e0;
+      border-left-color: #ff9800;
+    }
+
+    .callout-warning strong {
+      color: #e65100;
+    }
+
+    .callout p {
+      margin: 8px 0 0 0;
+    }
+
+    /* Git Steps */
+    .git-steps, .git-quick-steps, .exercise-steps {
+      margin: 16px 0;
+      padding-left: 24px;
+    }
+
+    .git-steps li, .git-quick-steps li, .exercise-steps li {
+      margin: 10px 0;
+      line-height: 1.6;
+    }
+
+    .git-quick-steps {
+      background-color: #f8f9fa;
+      padding: 20px 20px 20px 44px;
+      border-radius: 8px;
+      border: 1px solid #dee2e6;
+    }
+
+    /* Table */
+    .git-table-wrapper {
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+
+    .git-commands-table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .git-commands-table thead {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    }
+
+    .git-commands-table th {
+      color: white;
+      padding: 14px 16px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .git-commands-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid #e0e0e0;
+      vertical-align: top;
+    }
+
+    .git-commands-table tbody tr:hover {
+      background-color: #f5f5f5;
+    }
+
+    .git-commands-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Exercise Grid */
+    .exercise-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 20px 0;
+    }
+
+    .exercise-column h4 {
+      color: var(--primary-color);
+      margin-bottom: 12px;
+    }
+
+    .exercise-separator {
+      border: none;
+      border-top: 2px dashed #dee2e6;
+      margin: 30px 0;
+    }
+
     @media (max-width: 768px) {
       .concept-section {
         padding: 20px;
@@ -557,6 +1067,33 @@ import Layout from '../layouts/Layout.astro';
 
       .concept-header h2 {
         font-size: 1.5rem;
+      }
+
+      .procedure-title {
+        font-size: 1.5rem;
+      }
+
+      .subsection-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .subsection-header h3 {
+        font-size: 1.1rem;
+      }
+
+      .exercise-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .git-commands-table {
+        font-size: 0.85rem;
+      }
+
+      .git-commands-table th,
+      .git-commands-table td {
+        padding: 10px 12px;
       }
     }
   </style>
